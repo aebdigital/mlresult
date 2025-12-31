@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mlresult.sk/sitemap.xml
+
+# Crawl delay (optional - 1 second)
+Crawl-delay: 1
+
+# Disallow common directories that shouldn't be indexed
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /*.pdf$
+
+# Allow important assets for SEO
+Allow: /assets/images/logos/
+Allow: /assets/images/gallery/
+
+# Block common problematic user agents
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10

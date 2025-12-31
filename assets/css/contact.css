@@ -1,0 +1,325 @@
+/* Contact Page Specific Styles */
+
+.logo-image {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+.hero-kontakt {
+    padding: 120px 0 80px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/gallery/sources/ML Result & Gran - Marketing/Stroje/IMG-20250709-WA0025.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+/* Disable parallax on mobile devices */
+@media (max-width: 768px) {
+    .hero-kontakt {
+        background-attachment: scroll;
+    }
+}
+
+.hero-kontakt h1 {
+    font-size: 7.5rem;
+    font-weight: 700;
+    color: white;
+    -webkit-text-stroke: 2px #000;
+    text-stroke: 2px #000;
+    margin-bottom: 1rem;
+    text-align: left;
+    margin-left: 80px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.0;
+}
+
+.hero-kontakt h1::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: white;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+    overflow: hidden;
+    transition: width 1s ease;
+    white-space: nowrap;
+}
+
+.hero-kontakt h1.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-kontakt h1.fill-animate::before {
+    width: 100%;
+}
+
+/* Mobile fixes for title animation */
+@media (max-width: 768px) {
+    .hero-kontakt h1::before {
+        white-space: normal !important;
+        word-wrap: break-word;
+    }
+    
+    .hero-kontakt h1 {
+        font-size: 4.5rem !important;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-kontakt h1::before {
+        white-space: normal !important;
+        word-wrap: break-word;
+    }
+    
+    .hero-kontakt h1 {
+        font-size: 3rem;
+        margin-left: 15px;
+    }
+}
+
+.contact-section {
+    padding: 80px 0 0;
+    background: white;
+}
+
+.contact-top {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.contact-info {
+    padding: 0;
+}
+
+.company-info {
+    margin-bottom: 40px;
+}
+
+.company-info h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    margin-bottom: 15px;
+}
+
+.contact-details p {
+    margin: 8px 0;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contact-details strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.contact-details a {
+    color: #b42d20;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+
+.contact-item a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #f0f0f0;
+}
+
+.contact-map {
+    height: 100%;
+    min-height: 600px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.contact-form-section {
+    background: #f8f9fa;
+    padding: 80px 0;
+}
+
+.contact-form {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-form form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-form h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 18px;
+    border: 1px solid #e8e8e8;
+    border-radius: 0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666;
+    letter-spacing: 0.3px;
+    text-transform: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #b42d20;
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    background: #b42d20;
+    color: white;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 16px rgba(180, 45, 32, 0.2);
+}
+
+.submit-btn:hover {
+    background: #8b2319;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(180, 45, 32, 0.3);
+}
+
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#form-messages {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    display: none;
+}
+
+#form-messages.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+#form-messages.error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .contact-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-map {
+        height: 400px;
+        min-height: 400px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .contact-form {
+        padding: 0 20px;
+    }
+
+    .contact-form h2 {
+        font-size: 2rem;
+    }
+}
