@@ -146,19 +146,8 @@ export default function SluzbyPageClient() {
                 className="py-[80px] bg-white"
             >
                 <div className="container-main">
-                    <h2
-                        className="text-[3rem] lg:text-[5.6rem] font-bold mb-[20px] text-left text-white leading-[1.0] section-title-animated opacity-100 translate-y-0"
-                        style={{
-                            WebkitTextStroke: "2px #000",
-                            textShadow: "none"
-                        }}
-                    >
-                        <span className="relative inline-block overflow-hidden text-transparent">
-                            <span className="absolute top-0 left-0 h-full w-full text-black transition-all duration-[3s] w-full overflow-hidden whitespace-nowrap">
-                                Montované oceľové konštrukcie
-                            </span>
-                            <span style={{ WebkitTextStroke: "2px #000" }}>Montované oceľové konštrukcie</span>
-                        </span>
+                    <h2 className="text-[2.5rem] lg:text-[3.5rem] font-bold mb-[30px] text-left text-black">
+                        Montované oceľové konštrukcie
                     </h2>
 
                     <div className="grid lg:grid-cols-2 gap-[40px] lg:gap-[120px] items-center mb-[70px]">
@@ -280,19 +269,8 @@ export default function SluzbyPageClient() {
                 className="py-[80px] bg-[#f8f9fa]"
             >
                 <div className="container-main">
-                    <h2
-                        className="text-[3rem] lg:text-[5.6rem] font-bold mb-[20px] text-left text-white leading-[1.0] section-title-animated opacity-100 translate-y-0"
-                        style={{
-                            WebkitTextStroke: "2px #000",
-                            textShadow: "none"
-                        }}
-                    >
-                        <span className="relative inline-block overflow-hidden text-transparent">
-                            <span className="absolute top-0 left-0 h-full w-full text-black transition-all duration-[3s] w-full overflow-hidden whitespace-nowrap">
-                                Nákladná doprava
-                            </span>
-                            <span style={{ WebkitTextStroke: "2px #000" }}>Nákladná doprava</span>
-                        </span>
+                    <h2 className="text-[2.5rem] lg:text-[3.5rem] font-bold mb-[30px] text-left text-black">
+                        Nákladná doprava
                     </h2>
 
                     <div className="grid lg:grid-cols-2 gap-[40px] lg:gap-[120px] items-center mb-[70px]">
@@ -425,19 +403,8 @@ export default function SluzbyPageClient() {
                 className="py-[80px] bg-white"
             >
                 <div className="container-main">
-                    <h2
-                        className="text-[3rem] lg:text-[5.6rem] font-bold mb-[20px] text-left text-white leading-[1.0] section-title-animated opacity-100 translate-y-0"
-                        style={{
-                            WebkitTextStroke: "2px #000",
-                            textShadow: "none"
-                        }}
-                    >
-                        <span className="relative inline-block overflow-hidden text-transparent">
-                            <span className="absolute top-0 left-0 h-full w-full text-black transition-all duration-[3s] w-full overflow-hidden whitespace-nowrap">
-                                Stavebníctvo
-                            </span>
-                            <span style={{ WebkitTextStroke: "2px #000" }}>Stavebníctvo</span>
-                        </span>
+                    <h2 className="text-[2.5rem] lg:text-[3.5rem] font-bold mb-[30px] text-left text-black">
+                        Stavebníctvo
                     </h2>
 
                     <div className="grid lg:grid-cols-2 gap-[40px] lg:gap-[120px] items-center mb-[70px]">
@@ -548,19 +515,8 @@ export default function SluzbyPageClient() {
                 className="py-[80px] bg-[#f8f9fa]"
             >
                 <div className="container-main">
-                    <h2
-                        className="text-[3rem] lg:text-[5.6rem] font-bold mb-[20px] text-left text-white leading-[1.0] section-title-animated opacity-100 translate-y-0"
-                        style={{
-                            WebkitTextStroke: "2px #000",
-                            textShadow: "none"
-                        }}
-                    >
-                        <span className="relative inline-block overflow-hidden text-transparent">
-                            <span className="absolute top-0 left-0 h-full w-full text-black transition-all duration-[3s] w-full overflow-hidden whitespace-nowrap">
-                                Prenájom stavebnej techniky
-                            </span>
-                            <span style={{ WebkitTextStroke: "2px #000" }}>Prenájom stavebnej techniky</span>
-                        </span>
+                    <h2 className="text-[2.5rem] lg:text-[3.5rem] font-bold mb-[30px] text-left text-black">
+                        Prenájom stavebnej techniky
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[40px]">

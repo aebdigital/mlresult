@@ -11,8 +11,10 @@ html {
   scroll-padding-top: 76px;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 /* Main container width */
@@ -47,12 +49,26 @@ h1, h2 {
   z-index: 1;
 }
 
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+
+  100% {
+    transform: scale(1.15) translateY(-2%);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenburns 12s ease-out forwards;
+}
+
 .hero-subpage-bg img {
   transform: scale(1.15);
 }
 
 /* Content sections slide over hero */
-.hero-subpage ~ section {
+.hero-subpage~section {
   position: relative;
   z-index: 10;
 }
@@ -63,14 +79,12 @@ h1, h2 {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
   transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  /* No solid background, rely on the stronger gradient shadow */
 }
 
 .navbar.mobile-open {
@@ -136,9 +150,17 @@ h1, h2 {
 
 /* Shining border effect for active filter button */
 @keyframes shine {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
 .filter-btn-active::before {

@@ -148,11 +148,6 @@ export default function GaleriaPageClient() {
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     sizes="(max-width: 768px) 100vw, 33vw"
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-[10px] p-[20px] transform translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-                                    <h3 className="text-white text-[1.2rem] font-semibold uppercase tracking-[1px] m-0">
-                                        {img.alt}
-                                    </h3>
-                                </div>
                             </div>
                         ))}
                     </div>

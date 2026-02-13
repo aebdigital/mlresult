@@ -94,8 +94,7 @@ export default function HomePageClient() {
                             src={img}
                             alt={`Hero background ${index + 1}`}
                             fill
-                            className={`object-cover transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}
-                            style={{ transform: "scale(1.15)" }}
+                            className={`object-cover transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? "opacity-100 animate-ken-burns" : "opacity-0"}`}
                             priority={index === 0}
                         />
                     ))}
@@ -106,8 +105,8 @@ export default function HomePageClient() {
                 <div className="fixed bottom-0 left-0 right-0 z-10 pointer-events-none">
                     <div className="container-main pb-[60px] flex flex-col md:flex-row justify-between items-end gap-[60px] pointer-events-auto">
                         {/* Left Bottom - Text */}
-                        <div className="flex-1 max-w-[700px] text-left">
-                            <h1 className="text-[2.5rem] md:text-[4rem] font-bold leading-[1.1] mb-5 shadow-black/50 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-w-[650px]">
+                        <div className="flex-1 max-w-[900px] text-left">
+                            <h1 className="text-[2.5rem] md:text-[4rem] font-bold leading-[1.2] mb-5 shadow-black/50 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-w-[850px]">
                                 Spoľahlivý partner pre dopravu, výstavbu a technické riešenia
                             </h1>
                             <p className="text-[1rem] md:text-[1.2rem] mb-[30px] opacity-90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
@@ -243,19 +242,10 @@ export default function HomePageClient() {
             <section id="gallery" ref={galleryRef} className="relative z-20 py-[100px] bg-white overflow-hidden w-full">
                 <div className="container-main">
                     <h2
-                        className={`text-[3rem] lg:text-[5rem] font-bold mb-[40px] text-left text-white leading-[1.2] transition-all duration-800 transform ${sectionTitleAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[50px]"
+                        className={`text-[2.5rem] lg:text-[3.5rem] font-bold mb-[40px] text-left text-black transition-all duration-800 transform ${sectionTitleAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[50px]"
                             }`}
-                        style={{
-                            WebkitTextStroke: "2px #000",
-                            textShadow: "none"
-                        }}
                     >
-                        <span className="relative inline-block overflow-hidden text-transparent">
-                            <span className={`absolute top-0 left-0 h-full w-full text-black transition-all duration-[3s] ${sectionTitleAnimated ? "w-full" : "w-0"} overflow-hidden whitespace-nowrap`}>
-                                Galéria
-                            </span>
-                            <span style={{ WebkitTextStroke: "2px #000" }}>Galéria</span>
-                        </span>
+                        Galéria
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px] w-full">
@@ -269,11 +259,6 @@ export default function HomePageClient() {
                                             fill
                                             className="object-cover transition-transform duration-600 group-hover:scale-110"
                                         />
-                                        <div className="absolute left-[5%] bottom-[5%] bg-white/10 backdrop-blur-[20px] border border-white/20 p-[13px] max-w-[80%] z-10">
-                                            <h3 className="text-[14px] font-semibold text-white m-0 leading-[1.0] uppercase tracking-[0.5px]">
-                                                {img.title}
-                                            </h3>
-                                        </div>
                                     </div>
                                 </Link>
                             </div>

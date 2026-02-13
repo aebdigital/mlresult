@@ -68,13 +68,15 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`no-underline font-medium text-base uppercase tracking-wide py-3 px-6 rounded transition-colors ${isActive(link.href)
-                    ? "text-[#DD1B1B]"
+                className={`no-underline font-medium text-base uppercase tracking-wide py-3 px-6 rounded transition-all relative ${
+                  isActive(link.href)
+                    ? "text-white after:content-[''] after:absolute after:bottom-1 after:left-6 after:right-6 after:h-[2px] after:bg-[#DD1B1B]"
                     : "text-white hover:text-[#DD1B1B]"
-                  } ${!isScrolled && !isMobileMenuOpen
+                } ${
+                  !isScrolled && !isMobileMenuOpen
                     ? "[text-shadow:0_2px_4px_rgba(0,0,0,0.3)]"
                     : ""
-                  }`}
+                }`}
               >
                 {link.label}
               </Link>
