@@ -96,17 +96,17 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <ul
-          className={`nav-menu md:hidden fixed top-0 left-[-100%] w-full h-screen bg-white/95 backdrop-blur-lg flex-col items-start pt-[100px] -z-10 transition-[left] duration-300 ease-in-out ${isMobileMenuOpen ? "!left-0" : ""
+          className={`nav-menu md:hidden fixed top-0 left-[-100%] w-full h-screen bg-black backdrop-blur-lg flex-col items-start pt-[100px] -z-10 transition-[left] duration-300 ease-in-out ${isMobileMenuOpen ? "!left-0" : ""
             }`}
         >
           {navLinks.map((link) => (
-            <li key={link.href} className="w-full border-b border-black/10">
+            <li key={link.href} className="w-full border-b border-white/10">
               <Link
                 href={link.href}
                 onClick={closeMobileMenu}
                 className={`block w-full py-4 px-8 text-[2rem] font-semibold uppercase font-inter ${isActive(link.href)
                   ? "text-[#b42d20]"
-                  : "text-black hover:text-[#DD1B1B]"
+                  : "text-white hover:text-[#DD1B1B]"
                   }`}
               >
                 {link.label}
