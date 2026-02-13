@@ -425,12 +425,11 @@ export default function SluzbyPageClient() {
                 className="py-[80px] bg-white"
             >
                 <div className="container-main">
-                    <h2 className="text-[2.5rem] lg:text-[3.5rem] font-bold mb-[30px] text-left text-black">
-                        Stavebníctvo
-                    </h2>
-
                     <div className="grid lg:grid-cols-2 gap-[40px] lg:gap-[120px] items-center mb-[70px]">
                         <div className="order-1">
+                            <h2 className="text-[2.5rem] lg:text-[3.5rem] font-bold mb-[30px] text-left text-black">
+                                Stavebníctvo
+                            </h2>
                             <div className="text-[1rem] leading-[1.6] text-[#666] space-y-[20px]">
                                 <p className="font-normal">V spoločnosti ML Result sme rozšírili naše portfólio o komplexné stavebné práce a inžinierske činnosti v oblasti výstavby infraštruktúry.</p>
                                 <p className="font-normal">Aby sme vedeli tieto služby efektívne zastrešiť a ďaler rozvíjať, založili sme materskú spoločnosť s názvom Gran, ktorá sa špecializuje na poskytovanie subdodávateľských riešení v rámci stavebných projektov po celom Slovensku.</p>
