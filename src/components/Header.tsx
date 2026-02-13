@@ -68,15 +68,13 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`no-underline font-medium text-base uppercase tracking-wide py-3 px-6 rounded transition-all relative ${
-                  isActive(link.href)
+                className={`no-underline font-medium text-base uppercase tracking-wide py-3 px-6 rounded transition-all relative ${isActive(link.href)
                     ? "text-white after:content-[''] after:absolute after:bottom-1 after:left-6 after:right-6 after:h-[2px] after:bg-[#DD1B1B]"
-                    : "text-white hover:text-[#DD1B1B]"
-                } ${
-                  !isScrolled && !isMobileMenuOpen
+                    : "text-white hover:after:content-[''] hover:after:absolute hover:after:bottom-1 hover:after:left-6 hover:after:right-6 hover:after:h-[2px] hover:after:bg-[#DD1B1B]"
+                  } ${!isScrolled && !isMobileMenuOpen
                     ? "[text-shadow:0_2px_4px_rgba(0,0,0,0.3)]"
                     : ""
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -107,8 +105,8 @@ export default function Header() {
                 href={link.href}
                 onClick={closeMobileMenu}
                 className={`block w-full py-4 px-8 text-[2rem] font-semibold uppercase font-inter ${isActive(link.href)
-                    ? "text-[#b42d20]"
-                    : "text-black hover:text-[#DD1B1B]"
+                  ? "text-[#b42d20]"
+                  : "text-black hover:text-[#DD1B1B]"
                   }`}
               >
                 {link.label}
