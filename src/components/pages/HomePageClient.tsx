@@ -112,16 +112,16 @@ export default function HomePageClient() {
                             <p className="text-[1rem] md:text-[1.2rem] mb-[30px] opacity-90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
                                 Sme stabilná slovenská spoločnosť s dlhoročnou praxou v doprave, stavebníctve a prenájme techniky. Naše riešenia spájajú skúsenosti, spoľahlivosť a moderné vybavenie.
                             </p>
-                            <div className="flex flex-col md:flex-row gap-5">
+                            <div className="flex flex-row gap-3 md:gap-5 w-full md:w-auto">
                                 <Link
                                     href="/galeria"
-                                    className="bg-[#b42d20] text-white px-[40px] py-[18px] font-semibold uppercase tracking-[1px] hover:bg-[#a02316] hover:-translate-y-[2px] transition-all text-center text-[15px]"
+                                    className="flex-1 md:flex-none bg-[#b42d20] text-white px-[20px] md:px-[40px] py-[15px] md:py-[18px] font-semibold uppercase tracking-[1px] hover:bg-[#a02316] hover:-translate-y-[2px] transition-all text-center text-[13px] md:text-[15px]"
                                 >
                                     PROJEKTY
                                 </Link>
                                 <Link
                                     href="/sluzby"
-                                    className="bg-black text-white px-[40px] py-[18px] font-semibold uppercase tracking-[1px] hover:bg-[#333] transition-all text-center text-[15px]"
+                                    className="flex-1 md:flex-none bg-black text-white px-[20px] md:px-[40px] py-[15px] md:py-[18px] font-semibold uppercase tracking-[1px] hover:bg-[#333] transition-all text-center text-[13px] md:text-[15px]"
                                 >
                                     NAŠE SLUŽBY
                                 </Link>
