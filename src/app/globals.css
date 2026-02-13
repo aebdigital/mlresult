@@ -86,11 +86,7 @@ h2 {
 }
 
 .navbar.scrolled {
-  /* No background change on scroll as requested */
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.95) 0%,
-      rgba(0, 0, 0, 0.7) 40%,
-      transparent 100%);
+  /* Inherit the same gradient as default state */
   backdrop-filter: none;
   box-shadow: none;
 }
