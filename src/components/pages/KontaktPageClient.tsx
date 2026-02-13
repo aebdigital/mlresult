@@ -75,59 +75,65 @@ export default function KontaktPageClient() {
             </section>
 
             {/* Contact Info & Map Section */}
-            <section className="pt-[80px] bg-white">
-                <div className="container-main grid grid-cols-1 md:grid-cols-[30%_70%] gap-[40px] mb-[80px]">
-                    {/* Contact Info */}
-                    <div className="space-y-[40px]">
+            {/* Combined Contact Info and Form Section */}
+            <section className="py-[80px] bg-white">
+                <div className="container-main grid grid-cols-1 lg:grid-cols-2 gap-[60px] mb-[80px]">
+                    {/* Left Column: Contact Info */}
+                    <div className="space-y-[60px]">
                         <div>
-                            <h3 className="text-[1.8rem] font-bold text-[#333] mb-[20px]">ML RESULT s.r.o.</h3>
-                            <div className="space-y-[10px] text-[#333]">
-                                <p><strong>Kancelária:</strong> Niže Mesta 12072, 049 25 Dobšiná</p>
-                                <p><strong>Telefón:</strong> <a href="tel:+421908527419" className="text-[#b42d20] hover:underline">+421 908 527 419</a></p>
-                                <p><strong>Otázky ohľadom dopravy:</strong> <a href="mailto:doprava@mlresult.sk" className="text-[#b42d20] hover:underline">doprava@mlresult.sk</a></p>
-                                <p><strong>Ostatné záležitosti:</strong> <a href="mailto:obchod@mlresult.sk" className="text-[#b42d20] hover:underline">obchod@mlresult.sk</a></p>
-                                <div className="pt-[10px]">
-                                    <p><strong>IČO:</strong> 47355743</p>
-                                    <p><strong>DIČ:</strong> 2023864524</p>
-                                    <p><strong>IČ DPH:</strong> SK2023864524</p>
+                            <h3 className="text-[1.8rem] font-bold text-[#333] mb-[30px] border-b-2 border-[#b42d20] inline-block pb-2">ML RESULT s.r.o.</h3>
+                            <div className="space-y-[15px] text-[#333] text-lg">
+                                <p className="flex items-start gap-4">
+                                    <span className="font-bold min-w-[100px]">Kancelária:</span>
+                                    <span>Niže Mesta 12072, 049 25 Dobšiná</span>
+                                </p>
+                                <p className="flex items-start gap-4">
+                                    <span className="font-bold min-w-[100px]">Telefón:</span>
+                                    <a href="tel:+421908527419" className="text-[#b42d20] hover:underline font-semibold">+421 908 527 419</a>
+                                </p>
+                                <p className="flex items-start gap-4">
+                                    <span className="font-bold min-w-[100px]">Doprava:</span>
+                                    <a href="mailto:doprava@mlresult.sk" className="text-[#b42d20] hover:underline">doprava@mlresult.sk</a>
+                                </p>
+                                <p className="flex items-start gap-4">
+                                    <span className="font-bold min-w-[100px]">Obchod:</span>
+                                    <a href="mailto:obchod@mlresult.sk" className="text-[#b42d20] hover:underline">obchod@mlresult.sk</a>
+                                </p>
+                                <div className="mt-6 pt-4 border-t border-gray-100 text-sm text-gray-500 grid grid-cols-3 gap-4">
+                                    <div><span className="font-semibold block text-gray-700">IČO:</span> 47355743</div>
+                                    <div><span className="font-semibold block text-gray-700">DIČ:</span> 2023864524</div>
+                                    <div><span className="font-semibold block text-gray-700">IČ DPH:</span> SK2023864524</div>
                                 </div>
                             </div>
                         </div>
 
                         <div>
-                            <h3 className="text-[1.8rem] font-bold text-[#333] mb-[20px]">GRAN s.r.o.</h3>
-                            <div className="space-y-[10px] text-[#333]">
-                                <p><strong>Kancelária:</strong> SNP 246, 049 24 Vlachovo</p>
-                                <p><strong>Telefón:</strong> <a href="tel:+421907456963" className="text-[#b42d20] hover:underline">+421 907 456 963</a></p>
-                                <p><strong>E-mail:</strong> <a href="mailto:info@gran-stav.sk" className="text-[#b42d20] hover:underline">info@gran-stav.sk</a></p>
-                                <div className="pt-[10px]">
-                                    <p><strong>IČO:</strong> 36817627</p>
-                                    <p><strong>DIČ:</strong> 2022440189</p>
-                                    <p><strong>IČ DPH:</strong> SK2022440189</p>
+                            <h3 className="text-[1.8rem] font-bold text-[#333] mb-[30px] border-b-2 border-[#b42d20] inline-block pb-2">GRAN s.r.o.</h3>
+                            <div className="space-y-[15px] text-[#333] text-lg">
+                                <p className="flex items-start gap-4">
+                                    <span className="font-bold min-w-[100px]">Kancelária:</span>
+                                    <span>SNP 246, 049 24 Vlachovo</span>
+                                </p>
+                                <p className="flex items-start gap-4">
+                                    <span className="font-bold min-w-[100px]">Telefón:</span>
+                                    <a href="tel:+421907456963" className="text-[#b42d20] hover:underline font-semibold">+421 907 456 963</a>
+                                </p>
+                                <p className="flex items-start gap-4">
+                                    <span className="font-bold min-w-[100px]">E-mail:</span>
+                                    <a href="mailto:info@gran-stav.sk" className="text-[#b42d20] hover:underline">info@gran-stav.sk</a>
+                                </p>
+                                <div className="mt-6 pt-4 border-t border-gray-100 text-sm text-gray-500 grid grid-cols-3 gap-4">
+                                    <div><span className="font-semibold block text-gray-700">IČO:</span> 36817627</div>
+                                    <div><span className="font-semibold block text-gray-700">DIČ:</span> 2022440189</div>
+                                    <div><span className="font-semibold block text-gray-700">IČ DPH:</span> SK2022440189</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Map */}
-                    <div className="h-[400px] md:h-auto md:min-h-[600px] shadow-[0_10px_30px_rgba(0,0,0,0.1)] overflow-hidden">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10419.2!2d20.3887671!3d48.8111279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473fb500bfeb77f1:0x200bab4632c5aa8f!2zTmnFvmUgTWVzdGEgMTIwNzIsIDA0OSAyNSBEb2LFoWluw6E!5e0!3m2!1ssk!2ssk!4v1620000000000!5m2!1ssk!2ssk"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen={true}
-                            loading="lazy"
-                        ></iframe>
-                    </div>
-                </div>
-            </section>
-
-            {/* Form Section */}
-            <section className="py-[80px] bg-[#f8f9fa]">
-                <div className="container-main">
-                    <div className="max-w-[800px] mx-auto">
-                        <h2 className="text-[2rem] font-bold text-[#333] mb-[40px] text-center">Napíšte nám</h2>
+                    {/* Right Column: Contact Form */}
+                    <div className="bg-[#f8f9fa] p-[40px] rounded shadow-lg h-fit sticky top-[100px]">
+                        <h2 className="text-[2rem] font-bold text-[#333] mb-[30px] text-center uppercase">Napíšte nám</h2>
 
                         {formStatus.message && (
                             <div className={`mb-5 p-4 rounded ${formStatus.type === 'success' ? 'bg-green-100 text-green-700 border border-green-200' : 'bg-red-100 text-red-700 border border-red-200'}`}>
@@ -135,7 +141,7 @@ export default function KontaktPageClient() {
                             </div>
                         )}
 
-                        <form onSubmit={handleSubmit} className="space-y-[25px]">
+                        <form onSubmit={handleSubmit} className="space-y-[20px]">
                             <div className="form-group">
                                 <label htmlFor="fullName" className="block font-semibold text-[#333] mb-[8px] text-[0.9rem] uppercase tracking-[0.5px]">Meno a priezvisko</label>
                                 <input
@@ -143,7 +149,7 @@ export default function KontaktPageClient() {
                                     id="fullName"
                                     name="fullName"
                                     required
-                                    className="w-full p-[18px] border border-[#e8e8e8] bg-[#fafafa] text-[1rem] focus:outline-none focus:border-[#b42d20] focus:bg-white focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all"
+                                    className="w-full p-[15px] border border-[#e8e8e8] bg-white text-[1rem] focus:outline-none focus:border-[#b42d20] focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all"
                                 />
                             </div>
 
@@ -155,7 +161,7 @@ export default function KontaktPageClient() {
                                         id="email"
                                         name="email"
                                         required
-                                        className="w-full p-[18px] border border-[#e8e8e8] bg-[#fafafa] text-[1rem] focus:outline-none focus:border-[#b42d20] focus:bg-white focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all"
+                                        className="w-full p-[15px] border border-[#e8e8e8] bg-white text-[1rem] focus:outline-none focus:border-[#b42d20] focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all"
                                     />
                                 </div>
                                 <div className="form-group">
@@ -164,7 +170,7 @@ export default function KontaktPageClient() {
                                         type="tel"
                                         id="phone"
                                         name="phone"
-                                        className="w-full p-[18px] border border-[#e8e8e8] bg-[#fafafa] text-[1rem] focus:outline-none focus:border-[#b42d20] focus:bg-white focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all"
+                                        className="w-full p-[15px] border border-[#e8e8e8] bg-white text-[1rem] focus:outline-none focus:border-[#b42d20] focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all"
                                     />
                                 </div>
                             </div>
@@ -175,7 +181,7 @@ export default function KontaktPageClient() {
                                     id="service"
                                     name="service"
                                     required
-                                    className="w-full p-[18px] border border-[#e8e8e8] bg-[#fafafa] text-[1rem] focus:outline-none focus:border-[#b42d20] focus:bg-white focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all appearance-none"
+                                    className="w-full p-[15px] border border-[#e8e8e8] bg-white text-[1rem] focus:outline-none focus:border-[#b42d20] focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all appearance-none"
                                 >
                                     <option value="">Vyberte službu</option>
                                     <option value="stavebnictvo">Stavebníctvo</option>
@@ -193,7 +199,7 @@ export default function KontaktPageClient() {
                                     name="message"
                                     placeholder="Popíšte svoj projekt alebo požiadavku..."
                                     required
-                                    className="w-full p-[18px] border border-[#e8e8e8] bg-[#fafafa] text-[1rem] min-h-[120px] focus:outline-none focus:border-[#b42d20] focus:bg-white focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all"
+                                    className="w-full p-[15px] border border-[#e8e8e8] bg-white text-[1rem] min-h-[120px] focus:outline-none focus:border-[#b42d20] focus:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all"
                                 ></textarea>
                             </div>
 
@@ -206,6 +212,32 @@ export default function KontaktPageClient() {
                             </button>
                         </form>
                     </div>
+                </div>
+
+                {/* Map Section */}
+                <div className="w-full h-[500px] relative">
+                    <div
+                        className="absolute inset-0 bg-black/60 z-10 flex items-center justify-center cursor-pointer transition-opacity group"
+                        onClick={(e) => {
+                            e.currentTarget.style.pointerEvents = 'none';
+                            e.currentTarget.style.opacity = '0';
+                        }}
+                    >
+                        <div className="text-center">
+                            <span className="text-white text-xl font-bold uppercase tracking-wider border-2 border-white px-6 py-3 bg-black/40 hover:bg-[#b42d20] hover:border-[#b42d20] transition-colors">
+                                Kliknite pre interakciu s mapou
+                            </span>
+                        </div>
+                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10419.2!2d20.3887671!3d48.8111279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473fb500bfeb77f1:0x200bab4632c5aa8f!2zTmnFvmUgTWVzdGEgMTIwNzIsIDA0OSAyNSBEb2LFoWluw6E!5e0!3m2!1ssk!2ssk!4v1620000000000!5m2!1ssk!2ssk"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        className="grayscale hover:grayscale-0 transition-all duration-500"
+                    ></iframe>
                 </div>
             </section>
         </main>
