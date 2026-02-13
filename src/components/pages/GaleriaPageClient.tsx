@@ -149,13 +149,13 @@ export default function GaleriaPageClient() {
                                     exit={{ opacity: 0, scale: 0.8 }}
                                     transition={{ duration: 0.4, delay: index * 0.05 }} // Staggered delay
                                     onClick={() => openLightbox(index)}
-                                    className="group relative overflow-hidden aspect-[16/10] cursor-pointer shadow-[0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] transition-shadow duration-300 hover:-translate-y-[5px]"
+                                    className="group relative overflow-hidden aspect-[16/10] cursor-pointer shadow-[0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] transition-all duration-300 hover:scale-[1.03] z-10 hover:z-20"
                                 >
                                     <Image
                                         src={img.src}
                                         alt={img.alt}
                                         fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        className="object-cover transition-transform duration-600 group-hover:scale-110"
                                         sizes="(max-width: 768px) 100vw, 33vw"
                                     />
                                 </motion.div>
