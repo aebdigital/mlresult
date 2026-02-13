@@ -79,36 +79,27 @@ h2 {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: transparent;
+  /* Stronger gradient shadow for the first 40% of the header */
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.7) 40%,
+      transparent 100%);
   transition: all 0.3s ease;
 }
 
-.navbar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40vh;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
-  z-index: -1;
-  pointer-events: none;
-}
-
 .navbar.scrolled {
-  background: transparent;
+  /* No background change on scroll as requested */
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.7) 40%,
+      transparent 100%);
   backdrop-filter: none;
   box-shadow: none;
 }
 
-.navbar.mobile-open::before {
-  height: 100vh;
+.navbar.mobile-open {
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-}
-
-.navbar.mobile-open {
-  background: transparent;
 }
 
 /* Scroll Progress Indicator */
