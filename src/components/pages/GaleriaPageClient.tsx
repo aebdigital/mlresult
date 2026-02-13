@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Image data derived from original HTML
 const allImages = [
@@ -134,63 +135,91 @@ export default function GaleriaPageClient() {
                     </div>
 
                     {/* Gallery Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]">
-                        {filteredImages.map((img, index) => (
-                            <div
-                                key={`${img.src}-${index}`}
-                                onClick={() => openLightbox(index)}
-                                className="group relative overflow-hidden aspect-[16/10] cursor-pointer shadow-[0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-[5px]"
-                            >
-                                <Image
-                                    src={img.src}
-                                    alt={img.alt}
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    sizes="(max-width: 768px) 100vw, 33vw"
-                                />
-                            </div>
-                        ))}
-                    </div>
+                    <motion.div
+                        layout
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+                    >
+                        <AnimatePresence mode="popLayout">
+                            {filteredImages.map((img, index) => (
+                                <motion.div
+                                    layout
+                                    key={img.src} // Use src as key for reliable identification
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    transition={{ duration: 0.4, delay: index * 0.05 }} // Staggered delay
+                                    onClick={() => openLightbox(index)}
+                                    className="group relative overflow-hidden aspect-[16/10] cursor-pointer shadow-[0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] transition-shadow duration-300 hover:-translate-y-[5px]"
+                                >
+                                    <Image
+                                        src={img.src}
+                                        alt={img.alt}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                    />
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Lightbox */}
-            {lightboxOpen && (
-                <div
-                    className="fixed inset-0 bg-black/90 backdrop-blur-[10px] z-[10000] flex items-center justify-center p-5"
-                    onClick={closeLightbox}
-                >
-                    <button
-                        className="absolute top-[20px] right-[20px] text-white text-[3rem] leading-none hover:text-[#DD1B1B] transition-colors z-[10002]"
+            <AnimatePresence>
+                {lightboxOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 bg-black/95 backdrop-blur-[10px] z-[10000] flex items-center justify-center p-5"
                         onClick={closeLightbox}
                     >
-                        &times;
-                    </button>
+                        <button
+                            className="absolute top-[20px] right-[20px] text-white text-[3rem] leading-none hover:text-[#DD1B1B] transition-colors z-[10002]"
+                            onClick={closeLightbox}
+                        >
+                            &times;
+                        </button>
 
-                    <button
-                        className="absolute left-[20px] top-1/2 -translate-y-1/2 text-white text-[2rem] p-[15px] bg-white/10 hover:bg-white/20 hover:text-[#DD1B1B] rounded transition-all z-[10002]"
-                        onClick={prevImage}
-                    >
-                        &#10094;
-                    </button>
+                        <button
+                            className="absolute left-[20px] top-1/2 -translate-y-1/2 text-white text-[2rem] p-[15px] bg-white/10 hover:bg-white/20 hover:text-[#DD1B1B] rounded transition-all z-[10002]"
+                            onClick={prevImage}
+                        >
+                            &#10094;
+                        </button>
 
-                    <button
-                        className="absolute right-[20px] top-1/2 -translate-y-1/2 text-white text-[2rem] p-[15px] bg-white/10 hover:bg-white/20 hover:text-[#DD1B1B] rounded transition-all z-[10002]"
-                        onClick={nextImage}
-                    >
-                        &#10095;
-                    </button>
+                        <button
+                            className="absolute right-[20px] top-1/2 -translate-y-1/2 text-white text-[2rem] p-[15px] bg-white/10 hover:bg-white/20 hover:text-[#DD1B1B] rounded transition-all z-[10002]"
+                            onClick={nextImage}
+                        >
+                            &#10095;
+                        </button>
 
-                    <div className="relative max-w-[90vw] max-h-[90vh] w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
-                        <Image
-                            src={filteredImages[currentImageIndex].src}
-                            alt={filteredImages[currentImageIndex].alt}
-                            fill
-                            className="object-contain"
-                        />
-                    </div>
-                </div>
-            )}
+                        <div className="relative max-w-[90vw] max-h-[90vh] w-full h-full flex items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentImageIndex} // Key on index to trigger animation on switch
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                                    className="relative w-full h-full"
+                                >
+                                    <Image
+                                        src={filteredImages[currentImageIndex].src}
+                                        alt={filteredImages[currentImageIndex].alt}
+                                        fill
+                                        className="object-contain"
+                                        priority
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </main>
     );
 }
