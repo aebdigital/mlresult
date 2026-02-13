@@ -79,8 +79,20 @@ h2 {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(#000000f2 0%, #000000b3 20%, #0000 40%);
+  background: transparent;
   transition: all 0.3s ease;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .navbar.scrolled {
@@ -89,9 +101,14 @@ h2 {
   box-shadow: none;
 }
 
-.navbar.mobile-open {
+.navbar.mobile-open::before {
+  height: 100vh;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
+}
+
+.navbar.mobile-open {
+  background: transparent;
 }
 
 /* Scroll Progress Indicator */
