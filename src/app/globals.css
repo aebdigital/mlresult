@@ -127,15 +127,16 @@ h2 {
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
-    top: 88px;
+    top: 0;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 88px);
+    height: 100vh;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     flex-direction: column;
+    padding-top: 100px;
     transition: left 0.3s ease;
-    z-index: 999;
+    z-index: -1;
   }
 }
 
