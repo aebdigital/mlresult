@@ -80,8 +80,8 @@ h2 {
   top: 0;
   width: 100%;
   z-index: 1000;
-  /* Strong dark top fading to transparent by 70% of the header height */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 70%);
+  /* Darker longer: stays >75% opaque for the first half, then fades out */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0) 100%);
   transition: all 0.3s ease;
 }
 
