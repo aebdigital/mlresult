@@ -197,7 +197,7 @@ export default function GaleriaPageClient() {
                             &#10095;
                         </button>
 
-                        <div className="relative max-w-[90vw] max-h-[90vh] w-full h-full flex items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>
+                        <div className="relative w-full h-full pointer-events-none flex items-center justify-center p-4">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={currentImageIndex} // Key on index to trigger animation on switch
@@ -205,7 +205,8 @@ export default function GaleriaPageClient() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
                                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                    className="relative w-full h-full"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="relative max-w-[90vw] max-h-[90vh] aspect-[16/10] w-full pointer-events-auto shadow-2xl"
                                 >
                                     <Image
                                         src={filteredImages[currentImageIndex].src}
