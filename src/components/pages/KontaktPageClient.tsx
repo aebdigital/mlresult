@@ -77,7 +77,7 @@ export default function KontaktPageClient() {
             {/* Contact Info & Map Section */}
             {/* Layout Container */}
             <section className="py-[60px] md:py-[80px] bg-white">
-                <div className="container-main grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-[40px] lg:gap-[60px]">
+                <div className="container-main grid grid-cols-1 lg:grid-cols-[1fr_500px] gap-[40px] lg:gap-[80px]">
 
                     {/* LEFT COLUMN: Contact Info + Map */}
                     <div className="flex flex-col gap-[40px]">
@@ -144,7 +144,7 @@ export default function KontaktPageClient() {
                                     e.currentTarget.style.opacity = '0';
                                 }}
                             >
-                                <span className="text-white/90 text-[10px] uppercase tracking-[1px] drop-shadow-md select-none opacity-80 group-hover:opacity-100 transition-opacity">
+                                <span className="text-white text-[10px] uppercase tracking-[1px] [text-shadow:0_2px_4px_rgba(0,0,0,1)] select-none opacity-90 group-hover:opacity-100 transition-opacity font-bold">
                                     Kliknite pre interakciu s mapou
                                 </span>
                             </div>
@@ -155,7 +155,7 @@ export default function KontaktPageClient() {
                                 style={{ border: 0 }}
                                 allowFullScreen={true}
                                 loading="lazy"
-                                className="grayscale hover:grayscale-0 transition-all duration-500"
+                                className="transition-all duration-500"
                             ></iframe>
                         </div>
 
