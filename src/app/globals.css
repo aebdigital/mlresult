@@ -79,13 +79,14 @@ h2 {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(#000000f2 0%, #000000b3 60%, #0000 100%);
+  background: linear-gradient(#000000f2 0%, #000000b3 20%, #0000 40%);
   transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-  /* No solid background, rely on the stronger gradient shadow above */
-  pointer-events: auto;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 .navbar.mobile-open {
