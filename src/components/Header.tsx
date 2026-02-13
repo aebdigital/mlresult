@@ -57,7 +57,7 @@ export default function Header() {
             alt="ML Result & Gran"
             width={160}
             height={64}
-            className="h-16 w-auto object-contain"
+            className="h-10 md:h-16 w-auto object-contain transition-all duration-300"
             priority
           />
         </Link>
