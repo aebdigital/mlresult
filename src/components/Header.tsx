@@ -115,6 +115,6 @@ export default function Header() {
           ))}
         </ul>
       </div>
-    </nav >
+    </nav>
   );
 }
