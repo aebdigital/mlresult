@@ -84,7 +84,8 @@ h2 {
 }
 
 .navbar.scrolled {
-  /* No solid background, rely on the stronger gradient shadow */
+  /* No solid background, rely on the stronger gradient shadow above */
+  pointer-events: auto;
 }
 
 .navbar.mobile-open {
