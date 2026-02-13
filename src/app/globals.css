@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+:root {
+  --primary-red: #DD1B1B;
+  --primary-red-dark: #b42d20;
+  --primary-red-darker: #8b2319;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+/* Main container width */
+.container-main {
+  width: 90vw;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Subpage Hero with Parallax */
+.hero-subpage {
+  position: relative;
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-subpage-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  height: 115vh;
+}
+
+.hero-subpage-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-subpage-bg img {
+  transform: scale(1.15);
+}
+
+/* Content sections slide over hero */
+.hero-subpage ~ section {
+  position: relative;
+  z-index: 10;
+}
+
+/* Navbar Styles - these need custom CSS as they're state-based */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar.mobile-open {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: rgba(221, 27, 27, 0.1);
+  z-index: 9999;
+}
+
+.scroll-progress-bar {
+  width: 100%;
+  height: 0%;
+  background: #DD1B1B;
+  transition: height 0.1s ease;
+}
+
+/* Privacy Popup */
+.privacy-popup {
+  display: none !important;
+}
+
+.privacy-popup.show {
+  display: flex !important;
+}
+
+/* Mobile Navigation Menu */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 88px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 88px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+}
+
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Shining border effect for active filter button */
+@keyframes shine {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.filter-btn-active::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  background-size: 400% 400%;
+  animation: shine 3s ease-in-out infinite;
+  z-index: -1;
+}
