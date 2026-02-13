@@ -47,9 +47,8 @@ export default function Header() {
 
   return (
     <nav
-      className={`navbar ${isScrolled ? "scrolled" : ""} ${
-        isMobileMenuOpen ? "mobile-open" : ""
-      }`}
+      className={`navbar ${isScrolled ? "scrolled" : ""} ${isMobileMenuOpen ? "mobile-open" : ""
+        }`}
     >
       <div className="container-main py-4 flex justify-between items-center">
         <Link href="/" className="transition-opacity hover:opacity-80">
@@ -69,13 +68,13 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`no-underline font-medium text-base uppercase tracking-wide py-3 px-6 rounded transition-colors ${
-                  isActive(link.href)
-                    ? "!text-[#b42d20] !bg-white"
-                    : isScrolled || isMobileMenuOpen
-                    ? "text-white hover:text-[#DD1B1B]"
-                    : "text-white hover:text-[#DD1B1B] [text-shadow:0_2px_4px_rgba(0,0,0,0.3)]"
-                }`}
+                className={`no-underline font-medium text-base uppercase tracking-wide py-3 px-6 rounded transition-colors ${isActive(link.href)
+                    ? "text-[#DD1B1B]"
+                    : "text-white hover:text-[#DD1B1B]"
+                  } ${!isScrolled && !isMobileMenuOpen
+                    ? "[text-shadow:0_2px_4px_rgba(0,0,0,0.3)]"
+                    : ""
+                  }`}
               >
                 {link.label}
               </Link>
@@ -85,9 +84,8 @@ export default function Header() {
 
         {/* Hamburger Menu */}
         <button
-          className={`hamburger md:hidden flex flex-col cursor-pointer gap-1.5 ${
-            isMobileMenuOpen ? "active" : ""
-          }`}
+          className={`hamburger md:hidden flex flex-col cursor-pointer gap-1.5 ${isMobileMenuOpen ? "active" : ""
+            }`}
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
@@ -98,20 +96,18 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <ul
-          className={`nav-menu md:hidden fixed top-[88px] w-full h-[calc(100vh-88px)] bg-white/95 backdrop-blur-lg flex-col items-start pt-12 ${
-            isMobileMenuOpen ? "!left-0" : ""
-          }`}
+          className={`nav-menu md:hidden fixed top-[88px] w-full h-[calc(100vh-88px)] bg-white/95 backdrop-blur-lg flex-col items-start pt-12 ${isMobileMenuOpen ? "!left-0" : ""
+            }`}
         >
           {navLinks.map((link) => (
             <li key={link.href} className="w-full border-b border-black/10">
               <Link
                 href={link.href}
                 onClick={closeMobileMenu}
-                className={`block w-full py-4 px-8 text-[2rem] font-semibold uppercase font-inter ${
-                  isActive(link.href)
+                className={`block w-full py-4 px-8 text-[2rem] font-semibold uppercase font-inter ${isActive(link.href)
                     ? "text-[#b42d20]"
                     : "text-black hover:text-[#DD1B1B]"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
