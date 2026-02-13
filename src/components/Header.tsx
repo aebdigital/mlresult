@@ -96,7 +96,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <ul
-          className={`nav-menu md:hidden fixed top-[73px] w-full h-[calc(100vh-73px)] bg-white/95 backdrop-blur-lg flex-col items-start pt-12 ${isMobileMenuOpen ? "!left-0" : ""
+          className={`nav-menu md:hidden fixed top-[70px] w-full h-[calc(100vh-70px)] bg-white/95 backdrop-blur-lg flex-col items-start pt-12 ${isMobileMenuOpen ? "!left-0" : ""
             }`}
         >
           {navLinks.map((link) => (
