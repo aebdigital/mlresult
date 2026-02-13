@@ -12,7 +12,11 @@ html {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-transform: uppercase;
   line-height: 1.2;
 }
@@ -92,8 +96,9 @@ h2 {
 }
 
 .navbar.mobile-open {
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 /* Scroll Progress Indicator */

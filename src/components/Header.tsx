@@ -96,7 +96,8 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <ul
-          className={`nav-menu md:hidden fixed top-0 left-[-100%] w-full h-screen bg-black backdrop-blur-lg flex-col items-start pt-[100px] -z-10 transition-[left] duration-300 ease-in-out ${isMobileMenuOpen ? "!left-0" : ""
+          style={{ backgroundColor: 'black' }}
+          className={`nav-menu md:hidden fixed top-0 left-[-100%] w-full h-screen !bg-black backdrop-blur-lg flex-col items-start pt-[100px] -z-10 transition-[left] duration-300 ease-in-out ${isMobileMenuOpen ? "!left-0" : ""
             }`}
         >
           {navLinks.map((link) => (

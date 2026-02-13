@@ -6,7 +6,7 @@ export default function Footer() {
       {/* CTA Section */}
       <div className="container-main flex flex-col md:flex-row justify-between items-start md:items-center mb-[60px] gap-[40px]">
         <div className="flex-1">
-          <h2 className="text-[2.5rem] md:text-[3rem] font-bold mb-[20px] text-white">Porozprávajme sa!</h2>
+          <h2 className="text-[1.8rem] md:text-[3rem] font-bold mb-[20px] text-white">Porozprávajme sa!</h2>
           <p className="text-[1.1rem] text-[#ccc] leading-[1.4]">
             Pripravení urobiť prvý krok k realizácii vášho vysnívaného projektu?
             <br />

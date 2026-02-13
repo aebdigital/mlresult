@@ -102,8 +102,8 @@ export default function HomePageClient() {
                 </div>
 
                 {/* Hero Content - Fixed */}
-                <div className="fixed bottom-0 left-0 right-0 z-10 pointer-events-none">
-                    <div className="container-main pb-[60px] flex flex-col md:flex-row justify-between items-end gap-[60px] pointer-events-auto">
+                <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-full">
+                    <div className="container-main pb-[60px] flex flex-col md:flex-row justify-between items-center gap-[60px] pointer-events-auto">
                         {/* Left Bottom - Text */}
                         <div className="flex-1 max-w-[900px] text-left">
                             <h1 className="text-[2.25rem] md:text-[4rem] font-bold leading-[1.2] mb-5 shadow-black/50 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-w-[850px]">

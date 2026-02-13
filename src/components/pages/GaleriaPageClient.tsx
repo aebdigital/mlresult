@@ -51,6 +51,7 @@ export default function GaleriaPageClient() {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [filteredImages, setFilteredImages] = useState(allImages.filter(img => img.category === "stavebnictvo"));
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     useEffect(() => {
         const timeout = setTimeout(() => setHeroAnimated(true), 100);
@@ -119,7 +120,51 @@ export default function GaleriaPageClient() {
             {/* Filter Section */}
             <section className="py-[40px] bg-white">
                 <div className="container-main">
-                    <div className="flex flex-wrap justify-center gap-[20px] mb-[40px]">
+                    {/* Mobile Filter Dropdown */}
+                    <div className="md:hidden relative mb-[40px] z-30">
+                        <button
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className="w-full bg-[#b42d20] text-white px-[30px] py-[15px] font-bold uppercase tracking-[1px] flex justify-between items-center shadow-md"
+                        >
+                            {filters.find(f => f.id === activeFilter)?.label}
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                className={`transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`}
+                            >
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+
+                        <AnimatePresence>
+                            {isDropdownOpen && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    className="absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 flex flex-col z-40"
+                                >
+                                    {filters.filter(f => f.id !== activeFilter).map(filter => (
+                                        <button
+                                            key={filter.id}
+                                            onClick={() => {
+                                                setActiveFilter(filter.id);
+                                                setIsDropdownOpen(false);
+                                            }}
+                                            className="px-[30px] py-[15px] text-left font-bold uppercase tracking-[1px] text-[#333] hover:bg-gray-100 transition-colors border-b border-gray-100 last:border-0"
+                                        >
+                                            {filter.label}
+                                        </button>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Desktop Filter Buttons */}
+                    <div className="hidden md:flex flex-wrap justify-center gap-[20px] mb-[40px]">
                         {filters.map((filter) => (
                             <button
                                 key={filter.id}
