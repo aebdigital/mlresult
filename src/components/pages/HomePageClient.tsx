@@ -98,6 +98,7 @@ export default function HomePageClient() {
                             priority={index === 0}
                         />
                     ))}
+                    <div className="absolute inset-0 bg-black/50 z-10"></div>
                 </div>
 
                 {/* Hero Content - Fixed */}
