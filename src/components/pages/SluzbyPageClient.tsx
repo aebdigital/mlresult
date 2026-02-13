@@ -60,10 +60,13 @@ export default function SluzbyPageClient() {
         return () => clearTimeout(timeout);
     }, []);
 
+    const [sidebarVisible, setSidebarVisible] = useState(true);
+
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY + 300;
 
+            // Active section logic
             for (const section of sections) {
                 const element = sectionRefs.current[section.id];
                 if (element) {
@@ -74,9 +77,25 @@ export default function SluzbyPageClient() {
                     }
                 }
             }
+
+            // Footer collision logic
+            const footer = document.querySelector("footer");
+            if (footer) {
+                const footerRect = footer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                // If footer is approaching the middle of the screen (where sidebar is)
+                // Sidebar is centered, so let's hide it when footer top is within 60% of viewport height
+                if (footerRect.top < windowHeight * 0.8) {
+                    setSidebarVisible(false);
+                } else {
+                    setSidebarVisible(true);
+                }
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
+        // Initial check
+        handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -118,7 +137,10 @@ export default function SluzbyPageClient() {
             </section>
 
             {/* Floating Navigation */}
-            <nav className="fixed right-[30px] top-1/2 -translate-y-1/2 z-[999] bg-white/70 backdrop-blur-[10px] p-[20px]  shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-white/20 transition-opacity duration-400 hidden lg:block">
+            <nav
+                className={`fixed right-[30px] top-1/2 -translate-y-1/2 z-[999] bg-white/70 backdrop-blur-[10px] p-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-white/20 transition-all duration-500 hidden lg:block ${sidebarVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[20px] pointer-events-none"
+                    }`}
+            >
                 <h4 className="text-[0.9rem] font-semibold text-[#333] mb-[15px] text-center uppercase tracking-[1px] m-0">
                     Služby
                 </h4>
