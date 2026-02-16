@@ -102,11 +102,11 @@ export default function HomePageClient() {
                 </div>
 
                 {/* Hero Content - Fixed */}
-                <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-full">
-                    <div className="container-main pb-[60px] flex flex-col md:flex-row justify-between items-center gap-[60px] pointer-events-auto">
+                <div className="fixed top-[62%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-full">
+                    <div className="container-main pb-[60px] flex flex-col md:flex-row justify-between items-center gap-[25px] md:gap-[60px] pointer-events-auto">
                         {/* Left Bottom - Text */}
                         <div className="flex-1 max-w-[900px] text-left">
-                            <h1 className="text-[2.25rem] md:text-[4rem] font-bold leading-[1.2] mb-5 shadow-black/50 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-w-[850px]">
+                            <h1 className="text-[2rem] md:text-[4rem] font-bold leading-[1.2] mb-5 shadow-black/50 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-w-[850px]">
                                 Spoľahlivý partner pre dopravu, výstavbu a technické riešenia
                             </h1>
                             <p className="text-[1rem] md:text-[1.2rem] mb-[30px] opacity-90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
@@ -130,20 +130,20 @@ export default function HomePageClient() {
 
                         {/* Right Bottom - Stats */}
                         <div className="flex-1 max-w-[500px] flex flex-col gap-[30px] md:self-end">
-                            <div className="flex gap-[30px]">
+                            <div className="flex gap-[20px] md:gap-[30px]">
                                 <div className="text-left">
-                                    <div className="text-[3rem] font-bold leading-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] text-white">
+                                    <div className="text-[2rem] md:text-[3rem] font-bold leading-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] text-white">
                                         200<span className="text-[#DD1B1B]">+</span>
                                     </div>
-                                    <div className="text-[0.9rem] opacity-80 uppercase tracking-[0.5px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] text-white">
+                                    <div className="text-[0.75rem] md:text-[0.9rem] opacity-80 uppercase tracking-[0.5px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] text-white">
                                         Dokončených projektov
                                     </div>
                                 </div>
                                 <div className="text-left">
-                                    <div className="text-[3rem] font-bold leading-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] text-white">
+                                    <div className="text-[2rem] md:text-[3rem] font-bold leading-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] text-white">
                                         25<span className="text-[#DD1B1B]">+</span>
                                     </div>
-                                    <div className="text-[0.9rem] opacity-80 uppercase tracking-[0.5px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] text-white">
+                                    <div className="text-[0.75rem] md:text-[0.9rem] opacity-80 uppercase tracking-[0.5px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] text-white">
                                         Rokov skúseností
                                     </div>
                                 </div>
