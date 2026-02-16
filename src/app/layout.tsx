@@ -3,7 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
+
 import SmoothScroll from "@/components/SmoothScroll";
 
 const montserrat = Montserrat({
@@ -80,7 +80,6 @@ export default function RootLayout({
       </head>
       <body className={montserrat.className}>
         <SmoothScroll>
-          <ScrollProgress />
           <Header />
           {children}
           <Footer />
