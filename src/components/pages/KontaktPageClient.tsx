@@ -188,7 +188,7 @@ export default function KontaktPageClient() {
                                 </span>
                             </div>
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d774!2d20.3861922!3d48.8111314!2m3!1e3!4b1!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473fb500bfeb77f1:0xb0547815643705af!2sML+RESULT+sro!5e0!3m2!1ssk!2ssk!4v1709913600000!5m2!1ssk!2ssk"
+                                src="https://www.google.com/maps?q=ML+RESULT+sro,+Niže+Mesta+12072,+049+25+Dobšiná&output=embed&hl=sk"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
