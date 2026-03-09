@@ -1,22 +1,56 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
+import Script from "next/script";
+
+declare global {
+    interface Window {
+        turnstile: {
+            render: (element: HTMLElement, options: Record<string, unknown>) => string;
+            reset: (widgetId: string) => void;
+        };
+    }
+}
 
 export default function KontaktPageClient() {
     const [heroAnimated, setHeroAnimated] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formStatus, setFormStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+    const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+    const turnstileRef = useRef<HTMLDivElement>(null);
+    const widgetIdRef = useRef<string | null>(null);
+
+    const renderTurnstile = useCallback(() => {
+        if (turnstileRef.current && window.turnstile && !widgetIdRef.current) {
+            widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+                sitekey: "0x4AAAAAACobaJAuiLULABP2",
+                callback: (token: string) => setTurnstileToken(token),
+                "expired-callback": () => setTurnstileToken(null),
+                theme: "light",
+            });
+        }
+    }, []);
 
     useEffect(() => {
         const timeout = setTimeout(() => setHeroAnimated(true), 100);
         return () => clearTimeout(timeout);
     }, []);
 
+    useEffect(() => {
+        renderTurnstile();
+    }, [renderTurnstile]);
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
         setFormStatus({ type: null, message: '' });
+
+        if (!turnstileToken) {
+            setFormStatus({ type: 'error', message: 'Prosím dokončite overenie.' });
+            setIsSubmitting(false);
+            return;
+        }
 
         const formData = new FormData(e.currentTarget);
         const data = {
@@ -25,6 +59,7 @@ export default function KontaktPageClient() {
             phone: formData.get("phone"),
             service: formData.get("service"),
             message: formData.get("message"),
+            turnstileToken,
         };
 
         try {
@@ -41,6 +76,10 @@ export default function KontaktPageClient() {
             if (response.ok) {
                 setFormStatus({ type: 'success', message: 'Správa bola úspešne odoslaná.' });
                 (e.target as HTMLFormElement).reset();
+                setTurnstileToken(null);
+                if (widgetIdRef.current && window.turnstile) {
+                    window.turnstile.reset(widgetIdRef.current);
+                }
             } else {
                 setFormStatus({ type: 'error', message: result.error || 'Nastala chyba pri odosielaní.' });
             }
@@ -262,14 +301,21 @@ export default function KontaktPageClient() {
                                 ></textarea>
                             </div>
 
+                            <div ref={turnstileRef} className="flex justify-center"></div>
+
                             <button
                                 type="submit"
-                                disabled={isSubmitting}
+                                disabled={isSubmitting || !turnstileToken}
                                 className="w-full bg-[#b42d20] text-white py-4 px-8 rounded-lg font-semibold uppercase tracking-wider text-sm shadow-md hover:bg-[#8b2319] hover:shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                             >
                                 {isSubmitting ? "Odosiela sa..." : "Odoslať správu"}
                             </button>
                         </form>
+                        <Script
+                            src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad"
+                            strategy="afterInteractive"
+                            onLoad={() => renderTurnstile()}
+                        />
                     </div>
 
                 </div>

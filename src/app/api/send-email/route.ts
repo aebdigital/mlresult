@@ -3,7 +3,32 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, message } = body;
+    const { name, email, phone, message, turnstileToken } = body;
+
+    // Verify Turnstile token
+    if (!turnstileToken) {
+      return NextResponse.json(
+        { error: "Chýba overenie Turnstile" },
+        { status: 400 }
+      );
+    }
+
+    const turnstileRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: process.env.TURNSTILE_SECRET_KEY,
+        response: turnstileToken,
+      }),
+    });
+    const turnstileData = await turnstileRes.json();
+
+    if (!turnstileData.success) {
+      return NextResponse.json(
+        { error: "Overenie zlyhalo. Skúste to znova." },
+        { status: 403 }
+      );
+    }
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -22,54 +47,42 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Here you would typically send the email using a service like:
-    // - Nodemailer
-    // - SendGrid
-    // - Resend
-    // - AWS SES
-    //
-    // For now, we'll log the data and return success
-    // In production, you would configure your email service here
-
-    console.log("Contact form submission:", {
-      name,
-      email,
-      phone: phone || "Not provided",
-      message,
-      timestamp: new Date().toISOString(),
+    // Send email via SMTP2GO API
+    const { service } = body;
+    const smtpRes = await fetch("https://api.smtp2go.com/v3/email/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        api_key: process.env.SMTP2GO_API_KEY,
+        to: [process.env.CONTACT_FORM_RECIPIENT],
+        sender: process.env.SMTP2GO_SENDER,
+        subject: `Nová správa z webu od ${name}`,
+        html_body: `
+          <h2>Nová správa z kontaktného formulára</h2>
+          <table style="border-collapse:collapse;width:100%;max-width:600px;">
+            <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Meno:</td><td style="padding:8px;border-bottom:1px solid #eee;">${name}</td></tr>
+            <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">E-mail:</td><td style="padding:8px;border-bottom:1px solid #eee;">${email}</td></tr>
+            <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefón:</td><td style="padding:8px;border-bottom:1px solid #eee;">${phone || "Neuvedené"}</td></tr>
+            <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Služba:</td><td style="padding:8px;border-bottom:1px solid #eee;">${service || "Neuvedená"}</td></tr>
+            <tr><td style="padding:8px;font-weight:bold;vertical-align:top;">Správa:</td><td style="padding:8px;">${message.replace(/\n/g, "<br>")}</td></tr>
+          </table>
+          <p style="color:#999;font-size:12px;margin-top:20px;">Odoslané z kontaktného formulára na mlresult.sk</p>
+        `,
+      }),
     });
 
-    // Example with Nodemailer (commented out - needs configuration):
-    /*
-    import nodemailer from "nodemailer";
+    const smtpData = await smtpRes.json();
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM,
-      to: "obchod@mlresult.sk",
-      subject: `Nova sprava od ${name}`,
-      html: `
-        <h2>Nova sprava z kontaktneho formulara</h2>
-        <p><strong>Meno:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Telefon:</strong> ${phone || "Neuvedene"}</p>
-        <p><strong>Sprava:</strong></p>
-        <p>${message}</p>
-      `,
-    });
-    */
+    if (!smtpRes.ok || smtpData.data?.error) {
+      console.error("SMTP2GO error:", smtpData);
+      return NextResponse.json(
+        { error: "Nepodarilo sa odoslať správu. Skúste to neskôr." },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
-      { success: true, message: "Sprava bola uspesne odoslana" },
+      { success: true, message: "Správa bola úspešne odoslaná" },
       { status: 200 }
     );
   } catch (error) {
