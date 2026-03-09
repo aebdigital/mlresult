@@ -188,7 +188,7 @@ export default function KontaktPageClient() {
                                 </span>
                             </div>
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10419.2!2d20.3887671!3d48.8111279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473fb500bfeb77f1:0x200bab4632c5aa8f!2zTmnFvmUgTWVzdGEgMTIwNzIsIDA0OSAyNSBEb2LFoWluw6E!5e0!3m2!1ssk!2ssk!4v1620000000000!5m2!1ssk!2ssk"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d774!2d20.3861922!3d48.8111314!2m3!1e3!4b1!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473fb500bfeb77f1:0xb0547815643705af!2sML+RESULT+sro!5e0!3m2!1ssk!2ssk!4v1709913600000!5m2!1ssk!2ssk"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
